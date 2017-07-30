@@ -135,5 +135,75 @@ In GitHub, look at the force-app/main/default/objects folder.  Notice that each 
 
 **Create a scratch org and deploy your code**
 
+Create a scratch org, push the source, then assign the permission set to the default user (you).  NOTE: Scratch orgs take a little time to build, so grab a cup of coffee, or ask someone about their favorite movie.  
+
+You'll know when your scratch org is ready when you get a response from ```$ sfdx force:org:open```
+
+```
+$ sfdx force:org:create -s -f config/project-scratch-def.json -a scratch1
+$ sfdx force:source:push
+$ sfdx force:user:permset:assign -n Spaceforce_Perms
+```
+
+Viola!  Application deployed into a scratch org.  Now let's load some data into it for our development.
+
+**Export data from sandbox, then load it into the scratch org**
+
+Salesforce DX comes with the abilty to query records, both to the screen and to files that can be used for importing into another org.
+
+Export records from the ```spaceforcedev``` sandbox.  Then push them to GitHub.
+
+```
+$ sfdx force:data:tree:export 
+       -u spaceforcedev 
+       -q "SELECT Name, Shape__c, Size__c, (SELECT Name, Size__c, Type__c FROM Stars__r) 
+             FROM Galaxy__c" -d ./data"
+Wrote 27 records to data/Galaxy__c-Star__c.json
+$ git add . && git commit -m "Saving Exported Data" && git push origin master
+```
+
+Check out the json file stored in the ./data folder in GitHub.
+
+Import the records into the scratch org
+
+```
+$ sfdx force:data:tree:import --sobjecttreefiles data/Galaxy__c-Star__c.json
+```
+
+Open your scratch org and look at the data in the list views.  You can also query from the command line.
+
+```
+$ sfdx force:data:soql:query -q "select Id, Name, Shape__c from Galaxy__c"
+```
+
+![soql results](images/soql-results.png)
+
+**Pull Declarative Development into the project**
+
+Open the scratch org and add a roll-up summary count field on Galaxy called "Number of Stars".  Pull the changed metadata into your source.  Push to GitHub.
+
+```
+$ sfdx force:source:pull
+$ git add . && git commit -m "Added Rollup on Galaxy to count Stars" && git push origin master
+```
+
+![source pull](images/force-source-pull.png)
+
+Requery and include the new field.
+
+```
+$ sfdx force:data:soql:query -q "select Id, Name, Shape__c, Number_of_Stars__c from Galaxy__c"
+```
+
+![query new field](images/query-new-field.png)
+
+**Push to Sandbox**
+
+Bundle up this
+
+
+
+
+
 
 
