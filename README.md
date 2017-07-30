@@ -223,6 +223,29 @@ $ sfdx force:mdapi:deploy --job XXX --targetusername dxsit"  # Where XXX is the 
 
 ![deploy success](images/deploy-success.png)
 
+**Get rocking into the sandbox**
+
+Assign the permission set to the authenticated user in DXSIT
+
+```
+$ sfdx force:user:permset:assign -n Spaceforce_Perms
+```
+
+Load the data set into the DXSIT sandbox
+
+```
+$ sfdx force:data:tree:import --sobjecttreefiles data/Galaxy__c-Star__c.json
+```
+
+Run all tests, then monitor the results.
+
+```
+$ sfdx force:apex:test:run -u OrgAlias -d OutputDir
+$ sfdx force:apex:test:report -u OrgAlias -i XXX  # Where XXX is the test job id
+```
+
+
+
 
 
 
