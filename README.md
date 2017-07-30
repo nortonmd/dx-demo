@@ -199,10 +199,29 @@ $ sfdx force:data:soql:query -q "select Id, Name, Shape__c, Number_of_Stars__c f
 
 **Push to Sandbox**
 
-Bundle up this
+Bundle up this app and push it to the DX System Integration Testing sandbox.  Authenticate to the DXSIT sandbox.
 
+```
+$ sfdx force:auth:web:login -a dxsit -r https://test.salesforce.com
+```
 
+Convert the DX format back to metadata format, commit and push to GitHub, deploy to the sandbox, then monitor the deployment.
 
+```
+$ sfdx force:source:convert -d mdapi/
+$ git add . && git commit -m "Convert DX to Metadata format" && git push origin master
+$ sfdx force:mdapi:deploy -d mdapi/ -u dxsit
+```
+
+![deploy to dxsit](images/deploy-to-dxsit.png)
+
+Monitor the deployment
+
+```
+$ sfdx force:mdapi:deploy --job XXX --targetusername dxsit"  # Where XXX is the job id
+```
+
+![deploy success](images/deploy-success.png)
 
 
 
