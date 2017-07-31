@@ -1,48 +1,65 @@
-# Command Line Interface Ninjitsu Skills
+# Command Line Interface Ninja Skills
 
-### Learn it, live it, love it
-[brad from fast time pic]()
+### Learn it, know it, live it
+![brad from fast time pic](images/brad.png)
 
-### History?
-[mr hand's history class](mr hand)
+### History?  What did that ever teach us?
+![mr hand's history class](images/mr-hand.jpg)
 
 ```
-history
+$ history  # What just happened?
 ```
 
 ### Hitting the Pipe
-[crack head])()
-
-### Gnu Regular Expression Parser (a.k.a. "grep")
+![what can pipes do for you?](images/pipes.jpg)
 
 ```
-history |grep "sfdx"
+$ history | yeah_buddy
+```
+
+### Gnu Regular Expression Parser (a.k.a. "grep")
+![gnu's not unix](images/gnu.png)
+[GNU](https://en.wikipedia.org/wiki/GNU)
+
+```
+$ history | grep "sfdx"
+```
+
+### grep - for the win
+![charlie](images/winning.jpeg)
+
+```
+$ grep -win "My_Custom_Field__c" *.cls
 ```
 
 ### Redirect
-[Judo Move]
+![Judo Move](images/judo-move.gif)
 
 ```
-history |grep "sfdx" > wicked_commands.sh
+$ history |grep "sfdx" > wicked_commands.sh
 ```
 
 ### Shhhhh-mod?  Or Change Mode (with Transformer sound here)
+![transformers](images/transformers.jpeg)
 
 ```
 chmod +x wicked_commands.sh
 ```
 
-### The Path of the Rightous One is beset on all sides, by those who would poison my brother
-[Jules from Pulp Fiction]()
+### PATH
+#### The PATH of the rightous man, ...
+![Jules from Pulp Fiction](images/jules.jpg)
 
 ```
 export "PATH=${PATH}:/users/yournamehere/bin"
 ```
 
 ### Alias - Allow myself to introduce, ... myself
-[Austin Powers]()
+![Austin Powers](images/austin-powers.png)
 ```
 alias gpom="git push origin master"
 ```
+
+
 
 
