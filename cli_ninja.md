@@ -92,7 +92,7 @@ $ echo "End of DX Commands" >> dx_commands.txt
 ![transformers](images/transformers.jpeg)
 
 ```
-$ dx_commands.sh
+$ ./dx_commands.sh
 -bash: dx_commands.sh: command not found
 $ chmod +x dx_commands.sh
 $ ./dx_commands.sh
