@@ -66,7 +66,7 @@ $ git init
 $ echo ".sfdx/*" > .gitignore
 $ init add .
 $ git commit -m "Initial Commit"
-$ git remote add origin https://github.com/nortonmd/sfsunday
+$ git remote add origin https://github.com/nortonmd/dxdemo
 $ git pull origin master
 ```
 
