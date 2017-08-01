@@ -180,9 +180,10 @@ $ sfdx force:data:soql:query -q "select Id, Name, Shape__c from Galaxy__c"
 
 **Pull Declarative Development into the project**
 
-Open the scratch org and add a roll-up summary count field on Galaxy called "Number of Stars".  Pull the changed metadata into your source.  Push to GitHub.
+Open the scratch org and add a roll-up summary count field on Galaxy called "Number of Stars".  Pull the changed metadata into your source.  Push to GitHub.  NOTE: Profiles may have been updated, but we don't want them in our repo, so remove them, if necessary.
 
 ```
+$ rm -rf mdapi/profiles
 $ sfdx force:source:pull
 $ git add . && git commit -m "Added Rollup on Galaxy to count Stars" && git push origin master
 ```
