@@ -245,6 +245,58 @@ $ sfdx force:apex:test:run -u OrgAlias -d OutputDir
 $ sfdx force:apex:test:report -u OrgAlias -i XXX  # Where XXX is the test job id
 ```
 
+## Let's do it better
+
+Script the commands you run routinely.  Add a ```bin``` directory and put the commands commands into bash scripts
+
+```
+$ mkdir bin
+$ export PATH=$PATH:./bin
+$ touch bin/scratch   # then add the commands
+$ chmod +x bin/scratch
+```
+
+Contents of bin/scratch
+
+```
+#!/bin/bash
+## Perform repetitive tasks associated with creating a sandbox
+## NOTE: This is basic file that does zero error checking. 
+
+printf "New scratch org alias: "
+read alias
+
+echo "Creating Scratch Org"
+sfdx force:org:create -s -f config/project-scratch-def.json -a $alias
+
+echo "Pushing Source"
+sfdx force:source:push
+
+echo "Assigning Permission Sets"
+permsets=$(find ./ -name *.permissionset-meta.xml -print | rev |cut -f1 -d"/" |rev |cut -f1 -d".")
+for permset in $permsets
+do
+	sfdx force:user:permset:assign -u $alias -n $permset
+done
+
+echo "Importing data sets"
+for dataset in data/*.json
+do
+	sfdx force:data:tree:import --sobjecttreefiles $dataset
+done
+
+echo "Running tests"
+sfdx force:apex:test:run -r human
+
+sfdx force:org:list
+
+echo "Opening scratch org $alias"
+sfdx force:org:open
+
+exit 0
+
+```
+
 
 
 
