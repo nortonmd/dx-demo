@@ -64,7 +64,7 @@ Initialize your local repository and link it to your GitHub repo.
 ```
 $ git init
 $ echo ".sfdx/*" > .gitignore
-$ init add .
+$ git add .
 $ git commit -m "Initial Commit"
 $ git remote add origin https://github.com/nortonmd/dxdemo
 $ git pull origin master
