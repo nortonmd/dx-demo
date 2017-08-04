@@ -7,6 +7,7 @@
 * [Request a 30 Day DevHub Org](https://developer.salesforce.com/promotions/orgs/dx-signup)
 * [Get a GitHub.com Account](https://github.com/)
 * [DX Command Reference](https://github.com/nortonmd/dx-commands)
+* [DX Thor - The DX Source Repo](https://github.com/nortonmd/dxthor)
 
 ## Nice to have
 * tree command - ```brew install tree```
@@ -66,7 +67,7 @@ $ git init
 $ echo ".sfdx/*" > .gitignore
 $ git add .
 $ git commit -m "Initial Commit"
-$ git remote add origin https://github.com/nortonmd/dxdemo
+$ git remote add origin https://github.com/nortonmd/dxthor
 $ git pull origin master
 ```
 

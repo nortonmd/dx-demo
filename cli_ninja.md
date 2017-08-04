@@ -83,7 +83,7 @@ force-app/main/default/classes/GalaxyAddExtensionTest.cls:101:		List<Galaxy__c> 
 ![Judo Move](images/judo-move.gif)
 
 ```
-$ echo "History of DX Commands > dx_commands.txt
+$ echo "History of DX Commands" > dx_commands.txt
 $ history |grep "sfdx" >> dx_commands.txt
 $ echo "End of DX Commands" >> dx_commands.txt
 ```
@@ -125,7 +125,7 @@ Compressing objects: 100% (2/2), done.
 Writing objects: 100% (3/3), 296 bytes | 0 bytes/s, done.
 Total 3 (delta 1), reused 0 (delta 0)
 remote: Resolving deltas: 100% (1/1), completed with 1 local object.
-To https://github.com/nortonmd/sfsunday
+To https://github.com/nortonmd/dxthor
    6102a03..202c377  master -> master
 ```
 
