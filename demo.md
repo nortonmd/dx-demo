@@ -5,13 +5,13 @@ Create a project called `demo`
 ```bash
 $ mkproj demo
 
-[info] sfdx force:project:create -n demo
-target dir = .../workspace/dx
- conflict demo/sfdx-project.json
-    force demo/sfdx-project.json
-identical demo/README.md
-identical demo/.forceignore
-identical demo/config/project-scratch-def.json
+sfdx force:project:create -n demo
+target dir = /Users/mnorton/workspace/dx
+   create demo/sfdx-project.json
+   create demo/README.md
+   create demo/.forceignore
+   create demo/config/project-scratch-def.json
+
 
 $ cd demo
 ```
@@ -25,7 +25,7 @@ target dir = ./workspace/dx/demo/force-app/main/default/classes
    create VFUtil.cls
    create VFUtil.cls-meta.xml
 
-[info] sfdx force:apex:class:create -n VFUtilTest -d force-app/main/default/classes
+sfdx force:apex:class:create -n VFUtilTest -d force-app/main/default/classes
 target dir = ./workspace/dx/demo/force-app/main/default/classes
    create VFUtilTest.cls
    create VFUtilTest.cls-meta.xml
@@ -42,12 +42,12 @@ Create a scratch org called `vftest`
 ```bash
 $ mkorg vftest
 
-[info] sfdx force:org:create -s -f config/project-scratch-def.json -a vftest
+sfdx force:org:create -s -f config/project-scratch-def.json -a vftest
 Successfully created scratch org: 00D..., username: test-...@example.com
-[info] sfdx force:user:password:generate -u vftest
+sfdx force:user:password:generate -u vftest
 Successfully set the password "B|a8Na$%uD" for user test-...@example.com.
 You can see the password again by running "sfdx force:user:display -u test-...@example.com".
-[info] sfdx force:org:display
+sfdx force:org:display
 === Org Description
 KEY              VALUE
 ───────────────  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -86,7 +86,7 @@ Run all tests
 ```bash
 $ runtests
 
-[info] sfdx force:apex:test:run -c -r human
+sfdx force:apex:test:run -c -r human
 === Apex Code Coverage
 ID                  NAME    % COVERED  UNCOVERED LINES
 ──────────────────  ──────  ─────────  ───────────────
@@ -159,7 +159,7 @@ Make a new package version
 ```bash
 $ mkversion
 
-[info] sfdx force:package2:version:create --directory force-app --wait 10
+sfdx force:package2:version:create --directory force-app --wait 10
 Request in progress. Sleeping 30 seconds. Will wait a total of 600 more seconds before timing out. Current Status='InProgress'
 Request in progress. Sleeping 30 seconds. Will wait a total of 570 more seconds before timing out. Current Status='InProgress'
 Request in progress. Sleeping 30 seconds. Will wait a total of 540 more seconds before timing out. Current Status='InProgress'
